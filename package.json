@@ -1,0 +1,71 @@
+{
+  "private": true,
+  "scripts": {
+    "dev:app": "next",
+    "dev:server": "ttsc -p server --watch",
+    "build:app": "next build",
+    "build:server": "ttsc -p server",
+    "build": "npm run build:server && npm run build:app",
+    "start": "next start --port $PORT",
+    "migrate:save": "typeorm migration:generate -n",
+    "migrate:deploy": "typeorm migration:run",
+    "migrate:rollback": "typeorm migration:revert",
+    "g:gql": "graphql-codegen --config graphql-codegen.yml"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json,md,css}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@hapi/iron": "^6.0.0",
+    "apollo-server-micro": "^2.21.1",
+    "class-validator": "^0.12.2",
+    "cookie": "^0.4.1",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.11.0",
+    "next": "^10.0.7",
+    "next-connect": "^0.9.1",
+    "passport": "^0.4.1",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth20": "^2.0.0",
+    "pg": "^8.5.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "typeorm": "^0.2.29",
+    "urql": "^1.11.6"
+  },
+  "devDependencies": {
+    "@egoist/prettier-config": "^0.1.0",
+    "@graphql-codegen/cli": "^1.21.2",
+    "@graphql-codegen/introspection": "1.18.1",
+    "@graphql-codegen/typescript": "1.21.0",
+    "@graphql-codegen/typescript-operations": "1.17.15",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.2",
+    "@types/cookie": "^0.4.0",
+    "@types/node": "^14.14.32",
+    "@types/passport": "1.0.6",
+    "@types/passport-github": "^1.1.5",
+    "@types/passport-google-oauth20": "^2.0.6",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "autoprefixer": "^10.2.4",
+    "dotenv": "^8.2.0",
+    "dotenv-expand": "^5.1.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "postcss": "^8.2.7",
+    "prettier": "^2.2.1",
+    "tailwindcss": "^2.0.3",
+    "ttypescript": "^1.5.12",
+    "typescript": "^4.2.2",
+    "typescript-transform-paths": "^2.2.3"
+  }
+}
